@@ -1,19 +1,18 @@
 #pragma once
 #include <vector>
+#include <stdexcept>
 #include "SinglyLinkedListNode.h"
 
 class SinglyLinkedList
 {
 	SinglyLinkedListNode* head;
-	int size;
+	int count;
 
 public:
 
 	SinglyLinkedList();
 
 	SinglyLinkedList(std::vector<int> initArray);
-
-	SinglyLinkedList(const SinglyLinkedList& initList);
 
 	void pushBack(int data);
 
@@ -31,6 +30,6 @@ public:
 
 	int search(int data);
 
-	int operator[](int pos);
+	int& operator[](int pos);
 };
 
