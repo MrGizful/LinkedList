@@ -29,23 +29,23 @@ int main()
 
     std::cout << std::endl;
 
-    DoublyLinkedList testDoubly({ 11,22,35,26,19 });
-    printDoublyList(testDoubly, "Initial doubly list: ");
+    DoublyLinkedList testDouble({ 11,22,35,26,19 });
+    printDoublyList(testDouble, "Initial doubly list: ");
 
-    testDoubly.pushBack(42);
-    testDoubly.pushForward(67);
-    testDoubly.push(59, 4);
-    printDoublyList(testDoubly, "Doubly list after push: ");
+    testDouble.pushBack(42);
+    testDouble.pushForward(67);
+    testDouble.push(59, 4);
+    printDoublyList(testDouble, "Doubly list after push: ");
 
-    testDoubly.popFirst();
-    testDoubly.popLast();
-    testDoubly.pop(2);
-    printDoublyList(testDoubly, "Doubly list after pop: ");
+    testDouble.popFirst();
+    testDouble.popLast();
+    testDouble.pop(2);
+    printDoublyList(testDouble, "Doubly list after pop: ");
 
     DoublyLinkedList searchedDoublyList;
-    for (int i = 0; i < testDoubly.size(); i++)
-        if (testDoubly.search(10 * i + i) != -1)
-            searchedDoublyList.pushBack(testDoubly[testDoubly.search(10 * i + i)]);
+    for (int i = 0; i < testDouble.size(); i++)
+        if (testDouble.search(10 * i + i) != -1)
+            searchedDoublyList.pushBack(testDouble[testDouble.search(10 * i + i)]);
     printDoublyList(searchedDoublyList, "New doubly list: ");
 }
 
