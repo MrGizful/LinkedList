@@ -1,34 +1,65 @@
 ﻿#include <iostream>
 #include <iomanip>
 #include "SinglyLinkedList.h"
+#include "DoublyLinkedList.h"
 
-void printList(SinglyLinkedList list, std::string comment);
+void printSinglyList(SinglyLinkedList list, std::string comment);
+void printDoublyList(DoublyLinkedList list, std::string comment);
 
 int main()
 {
-    SinglyLinkedList test({ 1,2,3,6,9 });
-    printList(test, "Start list: ");
+    SinglyLinkedList testSingle({ 1,2,3,6,9 });
+    printSinglyList(testSingle, "Initial singly list: ");
 
-    test.pushBack(10);
-    test.pushForward(0);
-    test.push(4, 5);
-    printList(test, "List after push: ");
+    testSingle.pushBack(10);
+    testSingle.pushForward(0);
+    testSingle.push(4, 5);
+    printSinglyList(testSingle, "Singly list after push: ");
 
-    test.popFirst();
-    test.popLast();
-    test.pop(2);
-    printList(test, "List after pop: ");
+    testSingle.popFirst();
+    testSingle.popLast();
+    testSingle.pop(2);
+    printSinglyList(testSingle, "Singly list after pop: ");
 
-    SinglyLinkedList searchedList;
-    for (int i = 0; i < test.size(); i++)
-        if (test.search(i) != -1)
-            searchedList.pushBack(test[test.search(i)]);
-    printList(searchedList, "New list: ");
+    SinglyLinkedList searchedSinglyList;
+    for (int i = 0; i < testSingle.size(); i++)
+        if (testSingle.search(i) != -1)
+            searchedSinglyList.pushBack(testSingle[testSingle.search(i)]);
+    printSinglyList(searchedSinglyList, "New singly list: ");
+
+    std::cout << std::endl;
+
+    DoublyLinkedList testDoubly({ 11,22,35,26,19 });
+    printDoublyList(testDoubly, "Initial doubly list: ");
+
+    testDoubly.pushBack(42);
+    testDoubly.pushForward(67);
+    testDoubly.push(59, 4);
+    printDoublyList(testDoubly, "Doubly list after push: ");
+
+    testDoubly.popFirst();
+    testDoubly.popLast();
+    testDoubly.pop(2);
+    printDoublyList(testDoubly, "Doubly list after pop: ");
+
+    DoublyLinkedList searchedDoublyList;
+    for (int i = 0; i < testDoubly.size(); i++)
+        if (testDoubly.search(10 * i + i) != -1)
+            searchedDoublyList.pushBack(testDoubly[testDoubly.search(10 * i + i)]);
+    printDoublyList(searchedDoublyList, "New doubly list: ");
 }
 
-void printList(SinglyLinkedList list, std::string comment)
+void printSinglyList(SinglyLinkedList list, std::string comment)
 {
-    std::cout << std::setw(20) << comment;
+    std::cout << std::setw(25) << comment;
+    for (int i = 0; i < list.size(); i++)
+        std::cout << list[i] << " ";
+    std::cout << std::endl;
+}
+
+void printDoublyList(DoublyLinkedList list, std::string comment)
+{
+    std::cout << std::setw(25) << comment;
     for (int i = 0; i < list.size(); i++)
         std::cout << list[i] << " ";
     std::cout << std::endl;
