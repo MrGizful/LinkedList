@@ -81,6 +81,10 @@ void SinglyLinkedList::push(int data, int pos)
 			pushForward(data);
 		}
 	}
+	else
+	{
+		throw std::out_of_range("Element is out of range");
+	}
 }
 
 int SinglyLinkedList::popFirst()
@@ -99,7 +103,7 @@ int SinglyLinkedList::popFirst()
 	}
 	else
 	{
-		throw std::range_error("List is empty");
+		throw std::underflow_error("List is empty");
 	}
 }
 
@@ -127,7 +131,7 @@ int SinglyLinkedList::popLast()
 	}
 	else
 	{
-		throw std::range_error("List is empty");
+		throw std::underflow_error("List is empty");
 	}
 }
 
