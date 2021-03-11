@@ -3,6 +3,10 @@
 #include <stdexcept>
 #include "DoublyLinkedListNode.h"
 
+//Worst and average time complexity
+//Access - O(n), Search - O(n), Insertion - O(1), Deletion - O(1)
+//Worst space complexity - O(n)
+
 class DoublyLinkedList
 {
 	int count;
